@@ -5,6 +5,7 @@
     position: relative;
     gap: 1rem;
     overflow-x: clip;
+    background: var(--cardColor);
 }
 
 
@@ -83,4 +84,13 @@
 .vl {
     height: 150%;
     border-left: 2px solid var(--hrColor);
+}
+
+.ProfileCard>span{
+    font-weight: bold;
+    color: rgb(10, 120, 78);
+    align-self: center;
+    margin-bottom: 1rem;
+    cursor: pointer;
+
 }
