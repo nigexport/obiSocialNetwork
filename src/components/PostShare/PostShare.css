@@ -1,7 +1,7 @@
 .PostShare{
     display: flex;
     gap: 1rem;
-    background-color: (--cardColor);
+    background-color: var(--cardColor);
     padding: 1rem;
     border-radius: 1rem;
 }
@@ -39,8 +39,8 @@
 
 .option{
     padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -50,4 +50,30 @@
 
 .option:hover{
     cursor: pointer;
+}
+
+.ps-button{
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 12px;
+}
+
+
+.previewImage{
+    position: relative;
+}
+
+.previewImage>svg{
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    cursor: pointer;
+}
+
+.previewImage>img{
+    width: 100%;
+    max-height: 20rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
 }
