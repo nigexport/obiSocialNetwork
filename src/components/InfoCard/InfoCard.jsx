@@ -8,8 +8,34 @@ export const InfoCard = () => {
     <div className="InfoCard">
         <div className="InfoHead">
             <h4>Your Info</h4>
-            <UilPen/>
+            <div>
+            <UilPen width='2rem' height='1.2rem' />
+            </div>
         </div>
+
+        <div className="Info">
+            <span>
+                <b>Gender </b>
+            </span>
+            <span>Female</span>
+        </div>
+
+        <div className="Info">
+            <span>
+                <b>State </b>
+            </span>
+            <span>Lagos</span>
+        </div>
+
+        <div className="Info">
+            <span>
+                <b>L.G.A </b>
+            </span>
+            <span>Ikeja</span>
+        </div>
+
+
+        <button className="button logout-button">Logout</button>
     </div>
   )
 }
