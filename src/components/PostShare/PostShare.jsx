@@ -24,7 +24,7 @@ const PostShare = () => {
     <div className="PostShare">
         <img src={ProfileImage} alt="" />
         <div>
-            <input type="text" placeholder="Let's build OBIstructure in every local govt" />
+            <input type="text" placeholder="We are the structure" />
             <div className="postOptions">
                 <div className="option" style={{color: "var(--photo)" }}
                 onClick={()=>imageRef.current.click()}
