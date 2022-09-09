@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Auth.css';
 import Logo from '../../img/postpic7.png';
 import { useDispatch } from 'react-redux';
+import { signUp } from '../../api/AuthRequest';
 
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(true);
