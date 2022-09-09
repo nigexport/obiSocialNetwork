@@ -1,10 +1,11 @@
-import React from 'react'
-import './Auth.css'
-import Logo from '../../img/postpic7.png'
-import { useState } from 'react';
+import React, { useState } from 'react';
+import './Auth.css';
+import Logo from '../../img/postpic7.png';
+import { useDispatch } from 'react-redux';
 
 const Auth = () => {
   const [isSignUp, setIsSignUp] = useState(true);
+  const dispatch = useDispatch()
 
   const [data, setData] = useState({firstname: "", lastname: "", password: "", confirmpass: "", username: ""})
   
@@ -17,12 +18,11 @@ const Auth = () => {
   const handleSubmit = (e)=> {
     e.preventDefault();
 
-    if(isSignUp)
+    if(isSignUp) {
+      data.password === data.confirmpass? dispatch(signUp(data)) : setConfirmPass(false);
+    }else
     {
-      if(data.password !== data.confirmpass) 
-      {
-        setConfirmPass(false)
-      }
+      dispatch(logIn(data))
     }
   };
 
@@ -43,7 +43,7 @@ const Auth = () => {
         {/* RightSide */}
         <div className="a-right">
           <form action="" className="infoForm authForm" onSubmit={handleSubmit}>
-            <h3>{isSignUp ? "Sign up. To Join The Structure":"Log In. To Continue The Movement "}</h3>                     
+            <h3>{isSignUp ? "Sign up. Join The Structure":"Log In. Continue The Movement "}</h3>                     
 
             {isSignUp && (
               <div>
