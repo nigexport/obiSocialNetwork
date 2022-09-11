@@ -7,9 +7,11 @@ import { UilLocationPoint } from "@iconscout/react-unicons";
 import { UilSchedule } from "@iconscout/react-unicons";
 import { UilTimes } from "@iconscout/react-unicons";
 import { useDispatch, useSelector } from "react-redux";
-import { uploadImage } from "../../actions/uploadAction";
+import { uploadImage, uploadPost } from "../../actions/uploadAction";
+
 
 const PostShare = () => {
+  const loading = useSelector((state)=>state.postReducer.uploading)  
   const [image, setImage] = useState(null);
   const imageRef = useRef();
 
@@ -22,8 +24,10 @@ const PostShare = () => {
       setImage(img);
     }
   };
-
-
+  const reset = ()=> {
+    setImage(null);
+    desc.current.value=""
+  }
   const handleSubmit = (e)=> {
     e.preventDefault();
 
@@ -45,8 +49,9 @@ const PostShare = () => {
         } catch (error) {
             console.log(error)
         }
-
     }
+    dispatch(uploadPost(newPost))
+    reset()
   }
   return (
     <div className="PostShare">
@@ -79,8 +84,10 @@ const PostShare = () => {
           </div>
           <button className="button ps-button"
           onClick={handleSubmit}
-          
-          >Share</button>
+          disabled={loading}          
+          >
+            {loading? "Uploading...": "Share"}
+          </button>
           <div style={{ display: "none" }}>
             <input
               type="file"
